@@ -1,0 +1,10 @@
+<div class="scroll-wrapper">
+    @for(item of items;track $index){
+    <p class="item">{{ item }}</p>
+    }
+    @if(isLoading){
+    <p class="loader"></p>
+    }
+</div>
+
+<div class="scroll-sentinel" appLazyScroll [isLoading]="isLoading" (pageScroll)="loadMore()"></div>

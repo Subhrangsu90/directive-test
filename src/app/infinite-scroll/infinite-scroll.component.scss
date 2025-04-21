@@ -1,0 +1,49 @@
+.scroll-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #363636;
+  border-radius: 12px;
+
+  overflow-y: auto;
+}
+
+.item {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: #272727;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #a0ef50;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #202020;
+  }
+}
+
+.loader {
+  text-align: center;
+  margin: 20px 0;
+  color: #f781e3;
+
+  &::after {
+    content: "⏳ Loading more...";
+    display: inline-block;
+    margin-left: 8px;
+    animation: pulse 1s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
