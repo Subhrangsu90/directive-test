@@ -1,11 +1,19 @@
-<div appClickOutside [appClickOutsideEnabled]="true" (clickOutside)="onClickOutside()">
-    <p>Click outside this box to trigger the event.</p>
-</div>
+<div class="modal-container">
+    <div appClickOutside [appClickOutsideEnabled]="true" (clickOutside)="onClickOutside()" class="clickable-box">
+        <p>Click outside this box to trigger the event.</p>
+    </div>
+    <button (click)="openModal()" class="open-modal-btn">Open Modal</button>
 
-<!-- Example of some UI that should close or do something when clicking outside -->
-<button (click)="openModal()">Open Modal</button>
-<dialog #dialogRef appClickOutside [appClickOutsideEnabled]="isModalOpen" (clickOutside)="closeModal()"
-    [open]="isModalOpen">
-    <p>Modal Content</p>
-    <button (click)="closeModal()">Close</button>
-</dialog>
+    @if (isModalOpen) {
+    <div class="custom-backdrop" (click)="closeModal()"></div>
+    }
+
+    <dialog #dialogRef appClickOutside [appClickOutsideEnabled]="isModalOpen" (clickOutside)="closeModal()"
+        [open]="isModalOpen" class="modal">
+        <div class="modal-content">
+            <div>😀</div>
+            <p>Modal Content</p>
+            <button (click)="closeModal()" class="close-modal-btn">Close</button>
+        </div>
+    </dialog>
+</div>

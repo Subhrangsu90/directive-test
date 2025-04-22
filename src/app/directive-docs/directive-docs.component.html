@@ -1,0 +1,128 @@
+<div class="directive-docs">
+    <h1>Angular Directives: A Complete Guide</h1>
+
+    <h2>Introduction</h2>
+    <p>
+        Angular directives are one of the core features that allow developers to extend HTML's functionality. They are
+        classes with the <code>&#64;Directive()</code> decorator that let you attach custom behavior to elements in the
+        DOM.
+    </p>
+
+    <hr />
+
+    <h2>Types of Directives</h2>
+
+    <h3>1. Component Directives</h3>
+    <ul>
+        <li><strong>Definition:</strong> Technically a directive with a template.</li>
+        <li><strong>Purpose:</strong> Create UI elements and control view logic.</li>
+        <li><strong>Decorator:</strong> <code>&#64;Component()</code></li>
+    </ul>
+
+    <h3>2. Attribute Directives</h3>
+    <ul>
+        <li><strong>Definition:</strong> Change the appearance or behavior of an element.</li>
+        <li><strong>Examples:</strong> <code>ngClass</code>, <code>ngStyle</code>, custom ones like
+            <code>appHighlight</code>
+        </li>
+        <li><strong>Decorator:</strong> <code>&#64;Directive()</code></li>
+    </ul>
+
+    <h3>3. Structural Directives</h3>
+    <ul>
+        <li><strong>Definition:</strong> Add or remove elements in the DOM.</li>
+        <li><strong>Examples:</strong> <code>*ngIf</code>, <code>*ngFor</code>, <code>*ngSwitch</code></li>
+        <li><strong>Decorator:</strong> <code>&#64;Directive()</code> with a <code>*</code>-prefixed selector
+            (conventionally)</li>
+    </ul>
+
+    <hr />
+
+    <h2>Why Use Directives?</h2>
+    <ul>
+        <li>Promote <strong>code reusability</strong></li>
+        <li>Add <strong>custom behavior</strong> to elements without changing the component</li>
+        <li><strong>Enhance user interactions</strong> dynamically</li>
+        <li>Cleanly separate logic from the template</li>
+    </ul>
+
+    <hr />
+
+    <h2>Creating a Custom Attribute Directive</h2>
+
+    <h3>Example: <code>appHighlight</code></h3>
+    <pre><code class="language-ts" [innerHTML]="codeBlock2">
+    </code></pre>
+
+    <h3>Usage</h3>
+
+    <pre><code class="language-html">&lt;p [appHighlight]="color"&gt;Hover over this text to highlight&lt;/p&gt;</code></pre>
+    <pre><code class="language-ts">color = "yellow";</code></pre>
+
+    <h4>Key Elements:</h4>
+    <ul>
+        <li><code>&#64;Directive</code>: Declares the class as a directive</li>
+        <li><code>selector</code>: HTML attribute used to apply directive</li>
+        <li><code>ElementRef</code>: Provides access to the DOM element</li>
+    </ul>
+
+    <hr />
+
+    <h2>Creating a Structural Directive</h2>
+
+    <h3>Example: <code>*appIf</code></h3>
+
+    <pre><code class="language-ts" [innerHTML]="codeBlock">
+    </code></pre>
+
+
+    <h3>Usage</h3>
+
+    <pre><code class="language-html">&lt;div *appIf="true"&gt;This is conditionally rendered&lt;/div&gt;</code></pre>
+
+    <h4>Key Elements:</h4>
+    <ul>
+        <li><code>TemplateRef</code>: Represents the contents inside the directive's host element</li>
+        <li><code>ViewContainerRef</code>: Manages view insertion/removal in the DOM</li>
+    </ul>
+
+    <hr />
+
+    <h2>Directive Lifecycle Hooks</h2>
+    <ul>
+        <li><code>ngOnInit</code>: Called once after directive's data-bound properties are initialized</li>
+        <li><code>ngOnDestroy</code>: Cleanup logic before directive is destroyed</li>
+        <li><code>ngAfterViewInit</code>: When the view is fully initialized</li>
+    </ul>
+
+    <hr />
+
+    <h2>Best Practices</h2>
+    <ul>
+        <li>Use <code>Renderer2</code> for DOM manipulation (not direct access via <code>nativeElement</code>)</li>
+        <li>Keep directive logic focused and modular</li>
+        <li>Use <code>&#64;Input()</code> to make directives configurable</li>
+        <li>Use <code>&#64;HostBinding()</code> to bind host element properties</li>
+        <li>Name custom directive selectors with a prefix (e.g., <code>app</code>, <code>cdv</code>) to avoid conflicts
+        </li>
+    </ul>
+
+    <hr />
+
+    <h2>Conclusion</h2>
+    <p>
+        Directives are powerful tools that allow Angular developers to encapsulate and reuse DOM logic, enhance
+        templates, and create dynamic UIs. Mastering attribute and structural directives empowers you to build more
+        modular, interactive, and maintainable applications.
+    </p>
+
+    <hr />
+
+    <h2>Resources</h2>
+    <ul>
+        <li><a href="https://angular.dev/guide/directives" target="_blank">Angular Docs on Directives</a></li>
+        <li><a href="https://angular.dev/api/core/Directive" target="_blank">Angular API Reference for
+                &#64;Directive</a>
+        </li>
+    </ul>
+</div>

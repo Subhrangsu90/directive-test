@@ -1,1 +1,79 @@
+.clickable-box {
+  padding: 20px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #ccc;
+  border-radius: 8px;
+  max-width: 300px;
+  margin: 20px auto;
+}
 
+.clickable-box p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Button styling */
+.open-modal-btn,
+.close-modal-btn {
+  background-color: #444;
+  color: #fffdf9;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.open-modal-btn:hover,
+.close-modal-btn:hover {
+  background-color: #666;
+}
+.custom-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #44083f39;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* Modal Styling */
+.modal {
+  background-color: #333;
+  color: #fffdf9;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.modal[open] {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

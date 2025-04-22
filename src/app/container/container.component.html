@@ -1,0 +1,32 @@
+<div class="app-container" [class.drawer-open]="showDrawer">
+    <button class="menu-toggle" (click)="toggleDrawer()">☰</button>
+
+    @if (showDrawer || isDesktop) {
+    <div class="container">
+        @if (isDesktop) {
+        <h1>Angular Directives</h1>
+        <h2>Custom Directives</h2>
+        }
+        <div class="links">
+            <a (click)="showDrawer = false" routerLink="directive-docs" routerLinkActive="active">Directive Docs</a>
+            <a (click)="showDrawer = false" routerLink="highlight" routerLinkActive="active">Highlight</a>
+            <a (click)="showDrawer = false" routerLink="text-case" routerLinkActive="active">Text Case</a>
+            <a (click)="showDrawer = false" routerLink="show-hide-password" routerLinkActive="active">Show Hide
+                Password</a>
+            <a (click)="showDrawer = false" routerLink="click-outside" routerLinkActive="active">Click Outside</a>
+            <a (click)="showDrawer = false" routerLink="permission-check" routerLinkActive="active">Permission Check</a>
+            <a (click)="showDrawer = false" routerLink="lazy-load" routerLinkActive="active">Lazy Load</a>
+            <a (click)="showDrawer = false" routerLink="tooltip" routerLinkActive="active">Tooltip</a>
+            <a (click)="showDrawer = false" routerLink="infinite-scroll" routerLinkActive="active">Infinite Scroll</a>
+        </div>
+    </div>
+    }
+
+    <div class="content">
+        @if (!isDesktop) {
+        <h1>Angular Directives</h1>
+        <h2>Custom Directives</h2>
+        }
+        <router-outlet></router-outlet>
+    </div>
+</div>

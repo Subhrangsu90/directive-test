@@ -1,0 +1,77 @@
+.tooltip-container {
+  padding: 2rem;
+  color: #e3e3e3;
+
+  .tooltip-options {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    input[type="radio"] {
+      accent-color: rgb(242, 178, 228);
+      -ms-transform: scale(1.5); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+      transform: scale(1.5);
+    }
+  }
+
+  button[appTooltip] {
+    padding: 0.5rem 1.2rem;
+    background-color: #1e1e1e;
+    border: 1px solid #e3e3e3;
+    color: #e3e3e3;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+}
+
+/* Tooltip styling - assumes you append your tooltip in the DOM using a class like .app-tooltip */
+.app-tooltip {
+  position: absolute;
+  background-color: #222;
+  color: #e3e3e3;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1);
+  font-size: 0.875rem;
+  z-index: 1000;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.top {
+    transform-origin: bottom center;
+  }
+
+  &.bottom {
+    transform-origin: top center;
+  }
+
+  &.left {
+    transform-origin: center right;
+  }
+
+  &.right {
+    transform-origin: center left;
+  }
+}
