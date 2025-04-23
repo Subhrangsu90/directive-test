@@ -31,11 +31,19 @@ export class LazyLoadDirective implements AfterViewInit {
 
     const observer = new IntersectionObserver(([entry], obs) => {
       if (entry.isIntersecting) {
-        const realImg = new Image();
-        realImg.src = this.imageUrl;
-        realImg.onload = () => {
-          imgElement.src = this.imageUrl;
+        const loadImage = () => {
+          const realImg = new Image();
+          realImg.src = this.imageUrl;
+          realImg.onload = () => {
+            imgElement.src = this.imageUrl;
+          };
         };
+        // Use requestIdleCallback if available, else fallback to requestAnimationFrame
+        if ('requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(loadImage);
+        } else {
+          requestAnimationFrame(loadImage);
+        }
         obs.unobserve(imgElement);
       }
     });
