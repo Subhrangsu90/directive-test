@@ -59,12 +59,12 @@ export class TooltipDirective {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       const scrollX = window.scrollX || document.documentElement.scrollLeft;
 
-      const hasTopSpace = hostPos.top + scrollY > tooltipRect.height + 4;
+      const hasTopSpace = hostPos.top + scrollY > tooltipRect.height + 8;
       const hasBottomSpace =
-        window.innerHeight - hostPos.bottom >= tooltipRect.height + 4;
-      const hasLeftSpace = hostPos.left >= tooltipRect.width + 4;
+        window.innerHeight - hostPos.bottom >= tooltipRect.height + 8;
+      const hasLeftSpace = hostPos.left >= tooltipRect.width + 8;
       const hasRightSpace =
-        window.innerWidth - hostPos.right >= tooltipRect.width + 4;
+        window.innerWidth - hostPos.right >= tooltipRect.width + 8;
 
       let position = this.tooltipPosition;
 
@@ -83,7 +83,7 @@ export class TooltipDirective {
           this.renderer.setStyle(
             tooltip,
             'top',
-            `${hostPos.top + scrollY - tooltipRect.height - 4}px`
+            `${hostPos.top + scrollY - tooltipRect.height - 8}px`
           );
           this.renderer.setStyle(
             tooltip,
@@ -98,7 +98,7 @@ export class TooltipDirective {
           this.renderer.setStyle(
             tooltip,
             'top',
-            `${hostPos.bottom + scrollY + 4}px`
+            `${hostPos.bottom + scrollY + 8}px`
           );
           this.renderer.setStyle(
             tooltip,
@@ -122,7 +122,7 @@ export class TooltipDirective {
           this.renderer.setStyle(
             tooltip,
             'left',
-            `${hostPos.left + scrollX - tooltipRect.width - 4}px`
+            `${hostPos.left + scrollX - tooltipRect.width - 8}px`
           );
           break;
         case 'right':
@@ -139,7 +139,7 @@ export class TooltipDirective {
           this.renderer.setStyle(
             tooltip,
             'left',
-            `${hostPos.right + 4 + scrollX}px`
+            `${hostPos.right + 8 + scrollX}px`
           );
           break;
       }

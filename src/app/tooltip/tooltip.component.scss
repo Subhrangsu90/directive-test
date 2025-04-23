@@ -23,7 +23,12 @@
       transform: scale(1.5);
     }
   }
-
+  .tooltip-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+  }
   button[appTooltip] {
     padding: 0.5rem 1.2rem;
     background-color: #1e1e1e;
