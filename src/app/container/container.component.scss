@@ -104,7 +104,7 @@
       position: fixed;
       top: 3.5rem;
       left: 0;
-      width: 100%;
+      width: -webkit-fill-available;
       z-index: 1000;
       background-color: #202020;
       border-bottom: 1px solid #5c5c5c;
@@ -113,7 +113,7 @@
     }
 
     .content {
-      padding-top: 2rem; // Enough to show content below drawer
+      padding-top: 3rem; // Enough to show content below drawer
     }
 
     .links {
